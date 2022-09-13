@@ -1,7 +1,7 @@
 <x-layout>
-    
+
     <div class="description">
-        <h2>Weekends List</h2>
+        <h2>Weekend Entry List</h2>
     </div>
     @include('partials._search')
          @include('partials.flash-message')
@@ -13,10 +13,10 @@
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Id Number </th>
-                                <th>Job Positioon</th>
+                                <th>Job Position</th>
                                 <th>Work Date</th>
                                 <th>Action</th>
-                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -32,7 +32,7 @@
                                     <a href="/weekendstaff/{{$weekend->id}}/edit">
                                         <button class="btnn"> <img src="/images/edit.png" alt=""></button>
                                     </a>
-                                   
+
                                      <form method="POST" action="/weekendstaff/{{$weekend->id}}">
                                                  @csrf     {{--   cross site protection --}}
                                             @method('DELETE')
@@ -40,9 +40,9 @@
                                  <img src="/images/delete.png" alt="">
                                          </button>
                                               </form>
-                                    
+
                                 </td>
-                                
+
                             </tr>
                             @endforeach
                             @else
@@ -58,7 +58,7 @@
                             @endunless
                         <tbody>
                     </table>
-                    
+
                 </div>
                 <div class="addbutton">
                     <a href="/weekendstaff/add">
@@ -66,11 +66,11 @@
                     Add Staff
                      </button>
                     </a>
-               
+
             </div>
 <div class="">
             {{$weekends->links()}}
             </div>
-            
+
 
 </x-layout>
