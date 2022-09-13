@@ -33,11 +33,9 @@ class RecipentController extends Controller
         $totalcars=Cars::whereDate('created_at', Carbon::today())->count();
         $totalweekenders=Weekend::count();
 
-
-
         return view('users.dashboard',compact('totalemps','totalints','totalguests','totalguns','totalcars','totalweekenders'));
      }
-        //show recipants
+        //show recipients
      public function q(){
         return view('recipents.recipient');
     }
@@ -105,7 +103,7 @@ class RecipentController extends Controller
 
                 //Session::flash('message','Recipent created or what ever we want');
 
-            return redirect('/Recipents/recipient')->with('message','Recipient updated successfully!');
+            return redirect('/Recipents/recipient')->with('updatt','Recipient updated successfully!');
     }
 
     // Delete Recipent
@@ -117,7 +115,7 @@ class RecipentController extends Controller
         abort(403,'Unauthorized Action');
     }
          $Recipent->delete();
-         return redirect('/Recipents/recipient')->with('message','Recipient deleted successfully ');
+         return redirect('/Recipents/recipient')->with('errorr','Recipient deleted successfully ');
     }
 
 

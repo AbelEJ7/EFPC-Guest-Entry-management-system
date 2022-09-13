@@ -11,7 +11,7 @@ use App\Http\Controllers\InternController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RecipentController;
 use App\Http\Controllers\WeekendController;
-
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,23 +24,23 @@ use App\Http\Controllers\WeekendController;
 */
                     //contlorell class
                     //all Recipent
-Route::get('/', [UserController::class,'login']); 
-// Route::get('/', [Recipent::class,'dash']); 
+Route::get('/', [UserController::class,'login']);
+// Route::get('/', [Recipent::class,'dash']);
 //show dashboard
 Route::get('/users/dashboard', [RecipentController::class,'dashboard'])->middleware('auth');
 // show reipant
 Route::get('/Recipents/recipient', [RecipentController::class,'recipient'])->middleware('auth');
              // show add form
- Route::get('/Recipents/addr', [RecipentController::class,'create'])->middleware('auth'); 
-                       
-               //  store Recipents data 
+ Route::get('/Recipents/addr', [RecipentController::class,'create'])->middleware('auth');
+
+               //  store Recipents data
  Route::post('/Recipents',[RecipentController::class,'store'])->middleware('auth');
  //show inter add
  Route::get('/interns/addi',[InternController::class,'view'])->middleware('auth');
- //  store intern data 
+ //  store intern data
  Route::post('/addintern',[InternController::class,'store'])->middleware('auth');
- 
- 
+
+
       //show recipant edit form
 
 Route::get('/Recipents/{Recipent}/edit',[RecipentController::class,'edit'])->middleware('auth');
@@ -71,7 +71,7 @@ Route::get('/register', [UserController::class,'create'])->middleware('guest');
 
      //create New User
      Route::post('/users',[UserController::class, 'store'])->middleware('guest');;
-     
+
       // Log user Out
       Route::post('/logout',[UserController::class,'logout'])->middleware('auth');
 
@@ -83,7 +83,7 @@ Route::get('/register', [UserController::class,'create'])->middleware('guest');
       Route::post('/users/authenticate',[UserController::class,'authenticate']);
       // show intern page
       Route::get('/interns/intern',[InternController::class,'intern_show'])->middleware('auth');
-      
+
 Route::get('/interns/{intern}/pdff',[PdfController::class,'generate'])->middleware('auth');;
 
   ///////**********Wekend staff routes */
@@ -94,7 +94,7 @@ Route::get('/interns/{intern}/pdff',[PdfController::class,'generate'])->middlewa
      //show staff add
  Route::get('/weekendstaff/add',[WeekendController::class,'view'])->middleware('auth');
 
-//  store weekend data 
+//  store weekend data
  Route::post('/addstaff',[WeekendController::class,'store'])->middleware('auth');
 
 
@@ -115,6 +115,7 @@ Route::delete('/weekendstaff/{weekend}',[WeekendController::class, 'destroy'])->
       //show report page
 Route::get('/Reports/main',[ReportController::class,'showmain'])->middleware('auth');;
 
+Route::get('/settings/Settings',[SettingController::class,'showsettings'])->middleware('auth');;
 
     //show intern report
 Route::get('/Reports/intern',[ReportController::class,'showinternreport'])->middleware('auth');;
@@ -162,4 +163,3 @@ Route::get('/users/setting',[PdfController::class,'showsetting'])->middleware('a
 
 
 
-   

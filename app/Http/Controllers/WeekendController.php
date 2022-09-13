@@ -73,7 +73,7 @@ public function store(Request $request)
 
                 //Session::flash('message','listing created or what ever we want');
 
-            return redirect('/weekendstaff/staff')->with('message','staff updated successfully!');
+            return redirect('/weekendstaff/staff')->with('updatt','staff updated successfully!');
     }
     // Delete weekend
     public function destroy(weekend $weekend)
@@ -84,7 +84,7 @@ public function store(Request $request)
         abort(403,'Unauthorized Action');
     }
          $weekend->delete();
-         return redirect('/weekendstaff/staff')->with('message','staff deleted successfully ');
+         return redirect('/weekendstaff/staff')->with('errorr','staff deleted successfully ');
     }
 
     protected $table='weekends';

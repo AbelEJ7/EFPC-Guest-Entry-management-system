@@ -40,13 +40,31 @@
                                     <a href="/interns/{{$inter->id}}/pdff">
                                         <button class="btnn"><img src="/images/id.png" alt=""></button>
                                     </a>
-                                     <form method="POST" action="/interns/{{$inter->id}}">
-                                                 @csrf     {{--   cross site protection --}}
+
+
+<!--delete button navigation-->
+<button onclick="document.getElementById('id01').style.display='block'" class="btnn" ><img src="/images/delete.png"></button>
+        <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="closeX" title="closeX Modal">&times;</span>
+         <div class="modal-content">
+            <div class="containerformodal">
+            <h1 style="font-size:24px;">Delete Account!</h1>
+            <br>
+            <p style="font-size:17px; font-family:Times New Roman; font-weight:500;">Are you sure you want to delete this Account?</p>
+
+            <div class="clearfix">
+            <form method="POST" action="/interns/{{$inter->id}}">
+            @csrf     {{--   cross site protection --}}
                                             @method('DELETE')
-                                 <button class="btnn">
-                                 <img src="/images/delete.png" alt="">
-                                         </button>
-                                              </form>
+            <button class="deleteaccountbtn">Delete</button>
+            </form>
+            <button type="button" class="cancelmodalbtn"onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+        </div>
+        </div>
+<!-- end of delete button navigation-->
+
+
+
 
 
 
@@ -88,3 +106,4 @@
             </div>
 
 </x-layout>
+

@@ -778,7 +778,7 @@ nav .profile-details i {
   background: none;
   border: none;
   cursor: pointer;
-  float:left ;
+  float:center ;
 }
 .search-box input{
 border-radius: 20px;
@@ -815,7 +815,7 @@ margin-left: 80px;
     border-color: #c3e6cb;
   }
   .alert-errorr {
-    color:black;
+    color:white;
     background-color: #ff0202a2;
     border-color: #c3e6cb;
   }
@@ -826,4 +826,96 @@ margin-left: 80px;
   }
 .dispnone{
 display: none;
+}
+
+
+
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelmodalbtn, .deleteaccountbtn {
+  float: left;
+  width: 50%;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+/* Add a color to the cancel button */
+.cancelmodalbtn {
+  background-color: rgb(77, 74, 74);
+  color: white;
+  padding: 10px 4px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+
+  opacity: 0.9;
+}
+
+/* Add a color to the delete button */
+.deleteaccountbtn {
+  background-color: red;
+  padding: 10px 4px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+ color: white;
+  opacity: 0.9;
+
+}
+
+/* Add padding and center-align text to the containerformodal */
+.containerformodal {
+  padding: 16px;
+  width:100%;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+ margin-left: -40%;
+  padding-top: 0px;
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color:white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 5px inset  rgba(255, 0, 0, 0.781);
+    width: 160%; /* Could be more or less, depending on screen size */
+margin-top: -30%;
+
+
+/* The Modal closeX Button (x) */}
+.closeX {
+  position: absolute;
+    MARGIN-left: 96%;
+   margin-top: -114px;
+  font-size: 35px;
+  color: black;
+}
+
+.closeX:hover,
+.closeX:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelmodalbtn, .deleteaccountbtn {
+    width: 100%;
+  }
 }

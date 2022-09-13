@@ -1,20 +1,15 @@
 <x-layout>
-    <header class="text-center">
-                        <h2 class="text-2xl font-bold uppercase mb-1">
-                            Edit Intern
-                        </h2>
-                        <p class="mb-4">Edit: {{$intern->fname}}</p>
-                    </header>
+   
     <form  method="POST" action="/interns/{{$intern->id}}/store" enctype="multipart/form-data">
          @csrf
           @method('PUT')
-                        
-                       
+
+
                     <div class="row">
                         <div class="col">
                             <label for="fname">First name:</label>
-                            <input class="form-control" 
-                            type="text" 
+                            <input class="form-control"
+                            type="text"
                             name="fname"
                             value="{{$intern -> fname}}">
                             @error('fname')
@@ -23,20 +18,20 @@
                         </div>
                         <div class="col">
                             <label for="lname">Last name:</label>
-                            <input class="form-control" 
-                            type="text" 
+                            <input class="form-control"
+                            type="text"
                             name="lname"
                             value="{{$intern -> lname}}">
                              @error('lname')
                             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="col">
                             <label for="role"> Role:</label>
-                            <input 
-                            class="form-control" 
-                            type="text" 
+                            <input
+                            class="form-control"
+                            type="text"
                             name="role"
                             value="{{$intern -> role}}" >
                             @error('role')
@@ -83,26 +78,26 @@
                             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                             @enderror
                         </div>
-                        
-                        
+
+
                         <div class="col">
                             <label for="fname">photo:</label>
-                            <input class="form-control" 
-                             type="file" 
+                            <input class="form-control"
+                             type="file"
                              name="fname"
                              >
 
-                            
+
                         </div>
                         <div class="col">
                         </div>
                     </div>
-                    
+
                     <div class="btwraper">
                         <button class="bt" >Edit</button>
                     </div>
-                    
+
                 </form>
-            
+
 
 </x-layout>

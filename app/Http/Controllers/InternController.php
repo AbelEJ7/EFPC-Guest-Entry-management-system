@@ -90,7 +90,7 @@ public function view(){
 
                 //Session::flash('message','listing created or what ever we want');
 
-            return redirect('/interns/intern')->with('message','Intern updated successfully!');
+            return redirect('/interns/intern')->with('updatt','Intern updated successfully!');
     }
     // delet intern
     public function destroy(interns $intern)
@@ -101,7 +101,7 @@ public function view(){
         abort(403,'Unauthorized Action');
     }
          $intern->delete();
-         return redirect('/interns/intern')->with('message','Intern deleted successfully ');
+         return redirect('/interns/intern')->with('errorr','Intern deleted successfully ');
     }
 
 

@@ -26,7 +26,7 @@
     <div class="lo">
 
  <a href="/users/dashboard"> <img src="\images\log.png"  width="100px" height="100px" >
-</a>       
+</a>
     </div>
 
         <ul class="nav-links">
@@ -61,15 +61,16 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/settings/Settings">
                 <i class='bx bx-cog'></i>
                     <span class="links_name">Setting</span>
                 </a>
             </li>
+
             <li class="log_out">
                 <form class="inline" method="POST"  action="/logout">
                     @csrf
-                    
+
                     <button class="logoutbtn" type="submit"><i class='bx bx-log-out'></i>
                   <span class="links_name">Log out</span>
                     </button>
