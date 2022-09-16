@@ -12,6 +12,8 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RecipentController;
 use App\Http\Controllers\WeekendController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Senderviewer;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,7 +88,7 @@ Route::get('/register', [UserController::class,'create'])->middleware('guest');
 
 Route::get('/interns/{intern}/pdff',[PdfController::class,'generate'])->middleware('auth');;
 
-  ///////**********Wekend staff routes */
+  ///////**********Weekend staff routes */
 
          /**show weekend staffs */
      Route::get('/weekendstaff/staff',[WeekendController::class,'showStaff'])->middleware('auth');;
@@ -150,6 +152,16 @@ Route::get('/weekendmontly',[PdfController::class,'generateweekendmonthly'])->mi
 Route::get('/weekendanualy',[PdfController::class,'generateweekendanualy'])->middleware('auth');
 
 Route::get('/users/setting',[PdfController::class,'showsetting'])->middleware('auth');
+
+
+
+
+Route::get('/users/sendpasswordlink',[Senderviewer::class,'showSender']);
+Route::post('/users/sendpasswordlink',[Senderviewer::class,'sendResetLink']);
+Route::get('/users/ResetPassword/{token}',[Senderviewer::class,'showResetForm'])->name('reset.password.form');
+Route::post('/users/ResetPassword',[Senderviewer::class,'resetPassword'])->name('reset.password');
+
+
 
 /***** */
 // //show add new admin page

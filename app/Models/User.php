@@ -81,4 +81,5 @@ class User extends Authenticatable
     public function weekends(){
         return $this->hasMany(Weekend::class,'user_id');
     }
+    protected $table='users';
 }

@@ -45,6 +45,7 @@ h1 {
 h4{
     text-align: center;
 	margin-bottom: 40px;
+    font-size:large;
     color: #ccb67a;
     font-family:"Roboto",sans-serif;
 }
@@ -95,57 +96,68 @@ img{
     font-weight: 500;
   margin: 10px;
 }
+.text-danger{
+color: white;
+}
 
 </style>
 <body>
 
-            <form method="POST" action="/users/authenticate">
 
-           <img src="\images\log.png"  width="100px" height="100px"><br><br>
-            <h1> Login </h1>
-            <h4> EFPCHQ Guest Entry Management System</h4>
+<form action="{{ route('reset.password') }}" method="post" autocomplete="off">
 
-            @csrf
 
-          <center> @error('email')
-                    <p class="error"style="color:white; background-color:red; " id="alertjs">{{$message}}</p>
-                     @enderror
-                     </center>
-                     <div>
+<form method="POST" action="/users/authenticate">
 
-                    <i  style="color: #eacd7c;" class="fas fa-user"></i>
-                    <label> Email</label>
-                    <input type="text"placeholder="Email" name="email"value="{{old('email')}}" >
+<img src="\images\log.png"  width="100px" height="100px"><br><br>
+
+<h4>Reset password</h4><hr>
 
 
 
+  @if (Session::get('fail'))
+      <div style="color:red;" >
+          {{ Session::get('fail') }}
+      </div>
+  @endif
+
+  @if (Session::get('success'))
+  <div  style="color:White;">
+      {{ Session::get('success') }}
+  </div>
+@endif
 
 
 
+  @csrf
+  <input type="hidden" name="token" value="{{ $token }}">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ $email ?? old('email') }}">
+
+        <center><span class="text-danger">@error('email'){{ $message }}@enderror</span></center>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
+
+        <center><span class="text-danger">@error('password'){{ $message }}@enderror</span> </center>
+
+    </div>
+    <div class="form-group">
+      <label for="password">Confirm password</label>
+      <input type="password" class="form-control" name="password_confirmation" placeholder="Enter password" value="{{ old('password_confirmation') }}">
+
+      <center><span class="text-danger">@error('password_confirmation'){{ $message }}@enderror</span> </center>
+  </div>
+
+        <button type="submit" class="btn btn-primary">Reset password</button>
+
+    <br>
+
+</form>
 
 
-                    <i style="color: #eacd7c;" class="fas fa-lock"></i> <label> Password</label>
-                    <br>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <a style="color:lightgray;"href="/users/sendpasswordlink">Forgot password?</a>
-
-
-                    <input type="password"  placeholder="Password"  name="password"value="{{old('password')}}">
-
-
-                    <button class="button" type="submit"  >
-                      <label class="loginlbl">Login</label>
-                   </button>
-
-
-
-                        <a href="/register" >Register</a>
-
-
-
-            </form>
 
 
 
