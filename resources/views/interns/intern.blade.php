@@ -16,7 +16,7 @@
                     <table class="fl-table">
                         <thead>
                             <tr>
-
+                                 <th >#</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th> Role </th>
@@ -30,9 +30,10 @@
                         </thead>
                         <tbody>
                             @unless($interns->isEmpty())
-                            @foreach ($interns as $inter)
+                            @foreach ($interns as $key => $inter)
                             <tr>
-
+                                          <td><strong>{{ ++$key }}</strong></td>
+                                                      
                                 <td>{{$inter->fname}}</td>
                                 <td>{{$inter->lname}}</td>
                                 <td>{{$inter->role}}</td>
