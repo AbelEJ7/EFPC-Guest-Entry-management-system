@@ -19,7 +19,7 @@ class InternController extends Controller
          public function intern_show(){
 
             return view('interns.intern',['interns'=> auth()->user()->interns()->filter
-        (request(['search']))->paginate(6)]);
+        (request(['search']))->paginate(11)]);
 
          }
          // show store page
